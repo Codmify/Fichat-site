@@ -1,24 +1,28 @@
-import { Card } from 'flowbite-react';
-import './App.css'
+import Dashboard from "./pages/components/dashboard/Dashboard"
+import { Route, Routes } from "react-router-dom"
+import { Chat } from "./pages/components/chat/Chat"
+import Profile from "./pages/components/profile/Profile"
+import Contacts from "./pages/components/contacts/Contacts"
+import Calls from "./pages/components/calls/Calls"
+import Bookmark from "./pages/components/bookmark/Bookmark"
+import Settings from "./pages/components/settings/Settings"
+
 
 function App() {
 
   return (
-    <Card
-      className="max-w-sm"
-      href="#"
-    >
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        <p>
-          Noteworthy technology acquisitions 2021
-        </p>
-      </h5>
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-        <p>
-          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-        </p>
-      </p>
-    </Card>
+    <Routes>
+        <Route path="/" element={<Dashboard />}>
+          <Route index element={<Chat />} />
+          <Route path="chats" element={<Chat />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="calls" element={<Calls />} />
+          <Route path="bookmark" element={<Bookmark />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+    </Routes>
+   
   )
 }
 
