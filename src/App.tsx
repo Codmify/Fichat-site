@@ -8,6 +8,7 @@ import Bookmark from "./pages/components/bookmark/Bookmark"
 import Settings from "./pages/components/settings/Settings"
 import Login from "./pages/components/Auth/Login"
 import Register from "./pages/components/Auth/Register"
+import ForgotPassword from "./pages/components/Auth/ForgotPassword"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <Routes>
         <Route path="/" element={<Login />}>
           <Route path="register" element={<Register />}/>
+          <Route path="auth-recoverpw" element={<ForgotPassword />} />
         </Route>
         <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<Chat />} />
