@@ -6,13 +6,20 @@ import Contacts from "./pages/components/contacts/Contacts"
 import Calls from "./pages/components/calls/Calls"
 import Bookmark from "./pages/components/bookmark/Bookmark"
 import Settings from "./pages/components/settings/Settings"
+import Login from "./pages/components/Auth/Login"
+import Register from "./pages/components/Auth/Register"
+import ForgotPassword from "./pages/components/Auth/ForgotPassword"
 
 
 function App() {
 
   return (
     <Routes>
-        <Route path="/" element={<Dashboard />}>
+        <Route path="/" element={<Login />}>
+          <Route path="register" element={<Register />}/>
+          <Route path="auth-recoverpw" element={<ForgotPassword />} />
+        </Route>
+        <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<Chat />} />
           <Route path="chats" element={<Chat />} />
           <Route path="profile" element={<Profile />} />
@@ -20,6 +27,7 @@ function App() {
           <Route path="calls" element={<Calls />} />
           <Route path="bookmark" element={<Bookmark />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
     </Routes>
    
