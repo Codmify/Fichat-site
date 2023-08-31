@@ -23,7 +23,7 @@ interface WithProps {
 const SignInWith: React.FC<WithProps> = ({text}) => {
 
     return (
-        <div className='flex flex-col gap-6'>
+        <div className='flex flex-col gap-6 z-20'>
             <div className="inline-flex flex-col items-center justify-center w-full">
                 <hr className="w-full h-px my-6 bg-[#333] border-0 dark:bg-gray-700"/>
                 <span className="block mt-[-36px] mx-auto px-3 font-medium text-[#adb5bd] bg-[#262626] left-1/2 dark:text-white dark:bg-gray-900 text-sm">{text}</span>

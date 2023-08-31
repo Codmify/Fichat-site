@@ -1,13 +1,22 @@
 import FormInterface from "./FormInterface";
 import Heading from "./Heading";
+import { useLocation } from "react-router-dom";
 
 
 
 const Login = () => {
-
+    const location = useLocation();
+    let screenHeight;
+    if(location.pathname === "/register"){
+        screenHeight = "h-full";
+    }
+    else {
+        screenHeight = "h-screen";
+    }
+   
     return (
-        <div className="conatainer text-white min-h-screen bg-[#4eac6d]">
-            <div className="flex flex-col md:flex-row h-full md:h-screen p-3 py-0 md:p-5 relative">
+        <div className="conatainer text-white min-h-screen bg-[#4eac6d] pb-5 md:pb-0">
+            <div className={`flex flex-col md:flex-row lg:${screenHeight} p-3 py-0 md:p-5 relative`}>
                 <div className="w-full text-center md:text-left md:w-[25%] py-7 md:ps-7">
                     <Heading 
                         logoDesc={"Responsive Bootstrap 5 Chat App"} 
