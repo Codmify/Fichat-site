@@ -219,7 +219,7 @@ const recoveryInterface =
                 greeting = "Register Account"
                 authMessage = "Get your free Doot account now."
                 />;
-                qLink = <div className="text-[#8f9198] mt-0 md:mt-3 text-center text-sm z-10">
+                qLink = <div className="text-[#8f9198] mt-0 md:mt-3 mb-6 text-center text-sm z-10">
                 Already have an account? <Link to="/" className="text-[#adb5bd] font-medium underline">Login</Link>
                 </div>;
                 socLog = <SignInWith text= "Sign up using"/>
@@ -230,7 +230,7 @@ const recoveryInterface =
                 headerInterfase = <FormHeading
                 greeting = "Reset Password"
                 authMessage = "Reset Password with Doot." />;
-                qLink= <div className="text-[#8f9198] mt-0 md:mt-3 text-center text-sm z-10">
+                qLink= <div className="text-[#8f9198] mt-0 md:mt-3 mb-6 text-center text-sm z-10">
                 Remember It ? <Link to="/" className="text-[#adb5bd] font-medium underline">Login</Link>
                 </div>;
                 cRight= 'md:bottom-8';
@@ -240,7 +240,7 @@ const recoveryInterface =
                headerInterfase = <FormHeading
                greeting = "Welcome back !"
                authMessage = "Sign in to continue to Doot." />
-               qLink = <div className="text-[#8f9198] mt-0 md:mt-3 text-center text-sm z-10">
+               qLink = <div className="text-[#8f9198] mt-0 md:mt-3 mb-6 text-center text-sm z-10">
                 Do you have an account? <Link to="register" className="text-[#adb5bd] font-medium underline">Register</Link>
                 </div>;
                 socLog = <SignInWith text= "Sign in with"/>;
@@ -251,14 +251,14 @@ const recoveryInterface =
 
     return (
         <>
-        <div className="flex gap-10 flex-col relative justify-center items-center bg-[#262626] h-full rounded-2xl p-5 pb-20">
+        <div className="flex gap-10 flex-col justify-center h-full items-center bg-[#262626] rounded-2xl p-5">
             {headerInterfase}
             <form onSubmit={handleSubmit} className="w-[98%] md:w-[55%] lg:w-[42%] xl:w-[33%] flex max-w-md flex-col gap-4">
                 {UiInterface}
                 {socLog}
                 {qLink}
 
-                <div className={`text-[#8f9198] left-0 w-full bottom-8  ${cRight} z-10 text-center text-sm absolute`}>
+                <div className={`text-[#8f9198] w-[70%] mx-auto md:w-full ${cRight} z-10 mt-5 bottom-[4%] text-center text-sm`}>
                     © 2023 Doot. Crafted with <span>&#10084;</span> by Themesbrand
                 </div>  
             </form>
