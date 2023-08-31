@@ -1,11 +1,12 @@
 import DropDownY from "./Dropdown/DropDownY";
 import ImageProfile from "./assets/gt1.jpeg";
 import ProfileImage from "./imageProfile/ProfileImage";
+import ProfileText from "./imageProfile/ProfileText";
 
 const Profile = () => {
   return (
     <section>
-      <div className="relative" >
+      <div className="relative">
         <img src={ImageProfile} alt="no image" className="h-44 w-full" />
 
         <div className="p-4 absolute top-0 left-0 right-0 ">
@@ -24,6 +25,9 @@ const Profile = () => {
             title="Front end Developer"
             imageUrl="/gt1.jpeg"
           />
+        </div>
+        <div className="">
+          <ProfileText />
         </div>
       </div>
     </section>
