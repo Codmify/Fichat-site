@@ -14,7 +14,7 @@ function App() {
   return (
     <RecoilRoot>
       <Routes>
-        <Route path="/" element={<Dashboard />}>
+        <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<Chat />} />
           <Route path="chats" element={<Chat />} />
           <Route path="chats/:id" element={<Chatting />} />

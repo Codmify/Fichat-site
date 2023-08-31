@@ -21,7 +21,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="w-[50%] mx-auto text-center py-4">
-                        <h2 className="text-2xl font-[600]">Welcome to FiChat App</h2>
+                        <h2 className="text-2xl font-[600]">Welcome to FiChat Site</h2>
                         <p className="py-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. cum sociis natoque penatibus et</p>
                         <button className="my-4 py-3 px-8 rounded-md font-[600] bg-[rgb(78,172,109)] text-white/90 hover:bg-[rgba(78,172,109,0.5)]">Get Started</button>
                     </div>

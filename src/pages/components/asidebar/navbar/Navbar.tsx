@@ -19,67 +19,67 @@ const Navbar = () => {
                     <BiSolidMessageAltDetail />
                 </li>
 
-                <li className={`w-full hidden md:flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/profile" ? "border-r-2 border-[#4eac6d] text-[#4eac6d]" : ""}`}>
+                <li className={`w-full hidden md:flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/profile" ? "border-r-2 border-[#4eac6d] text-[#4eac6d]" : ""}`}>
                     <Link
                         to="profile"
                         className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
                     >
-                        <BiUserCircle className={location.pathname === "/profile" ? "text-[#4eac6d]" : ""} />
+                        <BiUserCircle className={location.pathname === "/dashboard/profile" ? "text-[#4eac6d]" : ""} />
 
                         <NavToolTip path="Profile" />
                     </Link>
                 </li>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
+                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
                     <Link
                         to="."
                         className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
                     >
-                        <PiChats className={`my-4 md:my-0 ${location.pathname === "/" ? "text-[#4eac6d]" : ""}`} />
+                        <PiChats className={`my-4 md:my-0 ${location.pathname === "/dashboard" ? "text-[#4eac6d]" : ""}`} />
 
                         <NavToolTip path="Chats" />
                     </Link>
                 </li>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/contacts" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
+                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/contacts" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
                     <Link
                         to="contacts"
                         className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
                     >
-                        <RiContactsFill className={`my-4 md:my-0 ${location.pathname === "/contacts" ? "text-[#4eac6d]" : ""}`} />
+                        <RiContactsFill className={`my-4 md:my-0 ${location.pathname === "/dashboard/contacts" ? "text-[#4eac6d]" : ""}`} />
 
                         <NavToolTip path="Contacts" />
                     </Link>
                 </li>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/calls" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
+                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/calls" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
                     <Link
                         to="calls"
                         className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
                     >
-                        <BiPhoneCall className={`my-4 md:my-0 ${location.pathname === "/calls" ? "text-[#4eac6d]" : ""}`} />
+                        <BiPhoneCall className={`my-4 md:my-0 ${location.pathname === "/dashboard/calls" ? "text-[#4eac6d]" : ""}`} />
 
                         <NavToolTip path="Calls" />
                     </Link>
                 </li>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/bookmark" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
+                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/bookmark" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
                     <Link
                         to="bookmark"
                         className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
                     >
-                        <BsFillBookmarksFill className={`my-4 md:my-0 ${location.pathname === "/bookmark" ? "text-[#4eac6d]" : ""}`} />
+                        <BsFillBookmarksFill className={`my-4 md:my-0 ${location.pathname === "/dashboard/bookmark" ? "text-[#4eac6d]" : ""}`} />
 
                         <NavToolTip path="Bookmark" />
                     </Link>
                 </li>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/settings" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
+                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/settings" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
                     <Link
                         to="settings"
                         className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
                     >
-                        <FiSettings className={`my-4 md:my-0 ${location.pathname === "/settings" ? "text-[#4eac6d]" : ""}`} />
+                        <FiSettings className={`my-4 md:my-0 ${location.pathname === "/dashboard/settings" ? "text-[#4eac6d]" : ""}`} />
 
                         <NavToolTip path="Settings" />
                     </Link>
