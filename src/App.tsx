@@ -8,12 +8,19 @@ import Settings from "./pages/components/settings/Settings"
 import { RecoilRoot } from "recoil"
 import Dashboard from "./pages/components/dashboard/Dashboard"
 import Chatting from "./pages/components/chat/chatting/Chatting"
+import Login from "./pages/components/Auth/Login"
+import Register from "./pages/components/Auth/Register"
+import ForgotPassword from "./pages/components/Auth/ForgotPassword"
 
 
 function App() {
   return (
     <RecoilRoot>
       <Routes>
+        <Route path="/" element={<Login />}>
+          <Route path="register" element={<Register />}/>
+          <Route path="auth-recoverpw" element={<ForgotPassword />} />
+        </Route>
         <Route path="dashboard" element={<Dashboard />}>
           <Route index element={<Chat />} />
           <Route path="chats" element={<Chat />} />
@@ -23,6 +30,7 @@ function App() {
           <Route path="calls" element={<Calls />} />
           <Route path="bookmark" element={<Bookmark />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </RecoilRoot>
