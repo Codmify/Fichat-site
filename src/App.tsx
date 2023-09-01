@@ -5,16 +5,12 @@ import Contacts from "./pages/components/contacts/Contacts"
 import Calls from "./pages/components/calls/Calls"
 import Bookmark from "./pages/components/bookmark/Bookmark"
 import Settings from "./pages/components/settings/Settings"
-import { RecoilRoot } from "recoil"
-import Dashboard from "./pages/components/dashboard/Dashboard"
-import Chatting from "./pages/components/chat/chatting/Chatting"
 
 
 function App() {
   return (
-    <RecoilRoot>
-      <Routes>
-        <Route path="dashboard" element={<Dashboard />}>
+    <Routes>
+        <Route path="/" element={<Dashboard />}>
           <Route index element={<Chat />} />
           <Route path="chats" element={<Chat />} />
           <Route path="chats/:id" element={<Chatting />} />
@@ -23,6 +19,7 @@ function App() {
           <Route path="calls" element={<Calls />} />
           <Route path="bookmark" element={<Bookmark />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </RecoilRoot>
