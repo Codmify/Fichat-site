@@ -1,3 +1,4 @@
+
 import { Outlet } from "react-router-dom"
 
 
@@ -10,4 +11,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Profile;
