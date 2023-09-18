@@ -1,12 +1,15 @@
+import ProfileMedia from "./ProfileMedia";
+const imageUrls = ["/img1.jpg", "/gt1.jpeg", "/img1.jpg"]; // Replace with actual image URLs
+
 const ProfileText = () => {
   return (
-    <div className="text-slate-400 p-4 space-y-6">
+    <div className="text-slate-400 p-6 space-y-6">
       <h1 className="text-sm">
         If several languages coalesce, the grammar of the resulting language is
         more simple.
       </h1>
 
-      <div className="space-y-4">
+      <div className="space-y-4 ">
         <div className="flex items-center justify-start space-x-3">
           <span>
             <svg
@@ -49,7 +52,7 @@ const ProfileText = () => {
           <h1 className="text-sm">admin@themesbrand.com</h1>
         </div>
 
-        <div className="flex items-center justify-start space-x-3">
+        <div className="flex items-center justify-start space-x-3 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -72,7 +75,11 @@ const ProfileText = () => {
 
           <h1 className="text-sm">California, USA</h1>
         </div>
+
+        <div className="divide-y border-t border-slate-300"></div>
       </div>
+
+      <ProfileMedia imageUrls={imageUrls} />
     </div>
   );
 };
