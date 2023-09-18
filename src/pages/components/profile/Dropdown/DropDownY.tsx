@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const DropDownY: React.FC = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -40,9 +41,21 @@ const DropDownY: React.FC = () => {
         >
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
             <li className="flex justify-between px-4  hover:bg-gray-400 dark:hover:bg-gray-600 dark:hover:text-white items-center">
-              <a href="#" className="block py-2" role="menuitem">
+              {/* <NavLink to="/settings">
+                {({ isActive }) => (
+                  <a
+                    className={isActive ? "active" : "block py-2"}
+                    href="#"
+                    role="menuitem"
+                  >
+                    info{" "}
+                  </a>
+                )}
+              </NavLink> */}
+
+              <Link to="/info" className="block py-2" relative="path">
                 info
-              </a>
+              </Link>
 
               <span>
                 <svg
@@ -62,11 +75,22 @@ const DropDownY: React.FC = () => {
               </span>
             </li>
 
-
             <li className="flex justify-between px-4  hover:bg-gray-400 dark:hover:bg-gray-600 dark:hover:text-white items-center">
-              <a href="#" className="block py-2" role="menuitem">
+              {/* <NavLink to="/settings">
+                {({ isActive }) => (
+                  <a
+                    className={isActive ? "active" : "block py-2"}
+                    href="#"
+                    role="menuitem"
+                  >
+                    Settings
+                  </a>
+                )}
+              </NavLink> */}
+
+              <Link to="/Settings" className="block py-2" relative="path">
                 Settings
-              </a>
+              </Link>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,9 +114,21 @@ const DropDownY: React.FC = () => {
             </li>
 
             <li className="flex justify-between px-4  hover:bg-gray-400 dark:hover:bg-gray-600 dark:hover:text-white items-center">
-              <a href="#" className="block py-2" role="menuitem">
+              {/* <NavLink to="/settings">
+                {({ isActive }) => (
+                  <a
+                    className={isActive ? "active" : "block py-2"}
+                    href="#"
+                    role="menuitem"
+                  >
+                    Help
+                  </a>
+                )}
+              </NavLink> */}
+
+              <Link to="/help" className="block py-2" relative="path">
                 Help
-              </a>
+              </Link>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
