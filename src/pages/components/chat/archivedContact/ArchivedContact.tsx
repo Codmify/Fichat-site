@@ -25,13 +25,13 @@ const ArchivedContact = () => {
 
     return (
         <>
-            <section className="bg-[#262626] w-full">
-                <h2 className="uppercase text-xs font-[400] my-2">Archived</h2>
+            <section className="bg-[#262626]">
+                <h2 className="uppercase text-xs font-[400] my-2 px-4 md:px-6">Archived</h2>
                 <div>
                     <ul className="py-1">
                         {archivedContacts.map(contact => (
-                            <li key={contact.name} className="my-3">
-                                <article className="flex justify-between items-center">
+                            <li key={contact.name} className="">
+                                <article className="flex justify-between items-center px-4 md:px-6 py-2">
                                     <div className="flex gap-2 items-center">
                                         <div className={`w-[30px] h-[30px] rounded-full relative uppercase flex items-center justify-center text-white ${contact.logo === "mv" ? "bg-[#ffd166]" : contact.logo === "dv" ? "bg-[#50a5f1]" : contact.logo === "mm" ? "bg-[#ef476f]" : "bg-[#2e2e2e]"}`}>
                                             <div className="text-xs">{!contact.logo ? "#" : contact.logo}</div>

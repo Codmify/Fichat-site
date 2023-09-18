@@ -1,19 +1,21 @@
-import userIcon from "../assets/user-image.jpg";
+import userIcon from "./assets/user-image.jpg";
 import { BiUserCircle, BiPhoneCall, BiSolidMessageAltDetail } from "react-icons/bi";
 import { PiChats } from "react-icons/pi"
 import { RiContactsFill } from "react-icons/ri"
 import { BsFillBookmarksFill } from "react-icons/bs"
 import { FiSettings } from "react-icons/fi"
 import { MdOutlineLightMode } from "react-icons/md"
-import { useLocation, Link } from "react-router-dom";
-import NavToolTip from "../../tooltip/NavToolTip";
+import { useLocation, Link, useParams } from "react-router-dom";
+import NavToolTip from "../tooltip/NavToolTip";
 
 
 const Navbar = () => {
     const location = useLocation()
+    const { id } = useParams()
+
 
     return (
-        <nav className="fixed md:relative bottom-0 md:left-0 md:py-6 mx-auto bg-[#2e2e2e] w-full md:w-[90px] z-40 md:h-screen">
+        <nav className={`fixed bottom-0 lg:left-0 md:py-6 mx-auto bg-[#2e2e2e] w-full md:w-[90px] z-30 md:h-screen ${ id && "hidden lg:flex"}`}>
             <ul className="flex md:flex-col w-full mx-auto items-center gap-y-9">
                 <li className="w-full hidden md:flex items-center justify-center cursor-pointer text-[#4eac6d] text-lg md:text-[25px]">
                     <BiSolidMessageAltDetail />
@@ -32,7 +34,7 @@ const Navbar = () => {
 
                 <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
                     <Link
-                        to="."
+                        to="/dashboard"
                         className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
                     >
                         <PiChats className={`my-4 md:my-0 ${location.pathname === "/dashboard" ? "text-[#4eac6d]" : ""}`} />
