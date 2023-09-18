@@ -1,12 +1,15 @@
 import { useSetRecoilState } from "recoil"
 import { chatModalState } from "../atoms/ChatModalAtom"
 import { useEffect } from "react"
+import { callsState } from "../atoms/CallsAtom"
 
 const useCloseModal = () => {
     const setAuthModel = useSetRecoilState(chatModalState)
+    const setCallModal = useSetRecoilState(callsState)
 
         const closeModal = () => {
-            setAuthModel((prev) => ({ ...prev, isOpen: false, type: "invite"}))
+            setAuthModel((prev) => ({ ...prev, isOpen: false, type: "invite" }))
+            setCallModal((prev) => ({ ...prev, isOpen: false, type: "voice" }))
         }
 
 
