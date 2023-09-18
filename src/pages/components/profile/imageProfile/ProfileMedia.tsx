@@ -5,35 +5,42 @@ interface ProfileMediaProps {
 }
 
 const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
-  const [showAll, setShowAll] = useState(false);
-  const maxImagesToShow = 15;
+  const maxInitialImagesToShow = 3;
+  const [visibleImageCount, setVisibleImageCount] = useState(
+    maxInitialImagesToShow
+  );
+  const [isAddingImages, setIsAddingImages] = useState(false);
 
-  const visibleImageUrls = showAll
-    ? imageUrls
-    : imageUrls.slice(0, maxImagesToShow);
+  const handleShowAll = () => {
+    setVisibleImageCount(imageUrls.length);
+  };
+
+  const handleAddImages = () => {
+    // Logic to handle adding images goes here
+    setIsAddingImages(true);
+  };
 
   return (
     <div className="h-full w-full space-y-4">
       <div className="flex justify-between">
         <h1 className="uppercase text-sm">media</h1>
-        {/* show all */}
-        {imageUrls.length > maxImagesToShow && (
+        {imageUrls.length > maxInitialImagesToShow && (
           <span
             className="text-sm text-green-500 cursor-pointer"
-            onClick={() => setShowAll(!showAll)}
+            onClick={handleShowAll}
           >
-            {showAll ? "Show Less" : "Show All"}
+            Show All
           </span>
         )}
       </div>
 
       <div className="">
-        <div className="flex flex-grow space-x-2">
-          {visibleImageUrls.map((imageUrl, index) => (
+        <div className="flex space-x-1 rounded">
+          {imageUrls.slice(0, visibleImageCount).map((imageUrl, index) => (
             <img
               src={imageUrl}
               alt={`Image ${index + 1}`}
-              className="w-16 h-20"
+              className="w-[68px] h-20"
               key={index}
             />
           ))}

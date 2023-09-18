@@ -1,5 +1,5 @@
 import ProfileMedia from "./ProfileMedia";
-const imageUrls = ["/img1.jpg", "/gt1.jpeg", "/img1.jpg"]; // Replace with actual image URLs
+const imageUrls = ["/img1.jpg", "/img2.jpg", "/img1.jpg", "..."]; // Replace with actual image URLs
 
 const ProfileText = () => {
   return (
