@@ -23,7 +23,7 @@ const InviteContact = () => {
   return (
     <section className="bg-[#262626]  text-[#8f9198] rounded-lg">
       <header className="flex justify-between items-center py-2 px-4 border-b-[0.25px] border-[rgba(143,145,152,0.6)]">
-        <h2 className="text-md text-[#8f9198] font-[700] my-3">Add Contact</h2>
+        <h2 className="text-md text-[#8f9198] font-[700] my-3">Invitation</h2>
         <button
           className="bg-transparent rounded-lg p-1.5 ml-auto inline-flex items-center hover:text-white text-[#8f9198] text-lg"
           onClick={closeModal}

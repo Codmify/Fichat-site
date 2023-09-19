@@ -1,8 +1,12 @@
+import { Outlet } from "react-router-dom"
 
 
 const Contacts = () => {
   return (
-    <section className="min-w-[300px] p-4 md:p-6 text-[#8f9198] text-lg font-[700]">Contact Page</section>
+    <>
+    <section className="bg-[#262626] min-h-screen basis-full lg:basis-[29%] p-4 text-[#8f9198] text-lg font-[700] md:ml-[84px] lg:ml-0 lg:relative md:left-[90px]">Contact Page</section>
+    <Outlet />
+    </>
   )
 }
 

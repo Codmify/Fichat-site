@@ -6,57 +6,71 @@ import { useRecoilValue } from "recoil";
 import { chatModalState } from "../../atoms/ChatModalAtom";
 import AllChats from "./allchats/AllChats";
 import ArchivedContact from "./archivedContact/ArchivedContact";
-import  { chatState }  from "../../atoms/ChatAtom";
+import { chatState } from "../../atoms/ChatAtom";
 import ChatToolTip from "../tooltip/ChatToolTip";
-
+import { Outlet, useParams } from "react-router-dom";
 
 export const Chat = () => {
-  const [inputValue, setInputValue] = useState<string>("")
+  const { id } = useParams()
+  const [searchString, setSearchString] = useState<string>("")
   const setChatModalState = useSetRecoilState(chatModalState)
   const allChatState = useRecoilValue(chatState)
- 
+
 
   const handleInvite = () => {
     setChatModalState((prev) => ({ ...prev, isOpen: true, type: "invite" }))
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value.toLowerCase())
+    setSearchString(e.target.value.toLowerCase())
+  }
+
+  const handleSearch = () => {
+    setSearchString("")
   }
 
   return (
-    <section className="max-h-screen text-[#8f9198] text-xl font-[700] w-full overflow-y-auto">
-      <div className="bg-[#262626] w-full px-6">
-        <header className="sticky top-0 bg-[#262626] w-full pt-6 z-10">
-          <div className="flex justify-between items-center">
-            <h2>Chats</h2>
-            <button
-              className="bg-[rgba(78,172,109,0.1)] p-2 text-white hover:bg-[#4eac6d] text-sm rounded-sm relative group"
-              onClick={handleInvite}
-            >
-              <AiOutlinePlus />
-              <ChatToolTip path="Add Contact" />
-            </button>
-          </div>
+    <>
+      <section className={`bg-[#262626] basis-full lg:min-w-[23%] lg:basis-[23%] text-[#8f9198] text-lg font-[700] md:ml-[84px] ${id && "hidden lg:block"}`}>
+        <div className="bg-[#262626] max-h-screen overflow-y-auto">
+          <header className="sticky top-0 bg-[#262626] pt-6 z-20 md:pl-6 md:pr-4 px-4">
+            
+            <div className="flex justify-between items-center">
+              <h2>Chats</h2>
+              <button
+                className="bg-[rgba(78,172,109,0.1)] p-2 text-white hover:bg-[#4eac6d] text-sm rounded-sm relative group"
+                onClick={handleInvite}
+              >
+                <AiOutlinePlus />
+                <ChatToolTip path="Add Contact" />
+              </button>
+            </div>
 
-          <form className="flex items-center py-6">
-            <label htmlFor="search" className="absolute -left-[1000px]">Search</label>
-            <input
-              type="text"
-              id="search"
-              value={inputValue}
-              onChange={handleChange}
-              name="search"
-              className="w-full bg-[#2e2e2e] rounded-md border-none outline-0 outline-none text-sm py-3 placeholder:font-[400]"
-              placeholder="Search here..." />
-            <button className="absolute right-0 px-4 border-none text-[16px]">
-              <FiSearch />
-            </button>
-          </form>
-        </header>
+            <form className="flex items-center py-6">
+              <label htmlFor="search" className="absolute -left-[1000px]">Search</label>
+              <input
+                type="text"
+                id="search"
+                value={searchString}
+                onChange={handleChange}
+                name="search"
+                autoComplete="off"
+                className="w-full bg-[#2e2e2e] border-none rounded-md text-sm py-3 placeholder:font-[400]"
+                placeholder="Search here..."
+              />
+              <button className="absolute right-4 px-4 outline-none border-none text-[16px]">
+                <FiSearch />
+              </button>
+            </form>
+          </header>
 
-        {allChatState.type === "chats" ? <AllChats /> : <ArchivedContact />}
-      </div>
-    </section>
-  )
+          {allChatState.type === "chats" ? 
+          <AllChats search={searchString} handleSearch={handleSearch} /> 
+          : <ArchivedContact />
+          }
+        </div>
+      </section>
+      <Outlet />
+    </>
+  ) 
 }
