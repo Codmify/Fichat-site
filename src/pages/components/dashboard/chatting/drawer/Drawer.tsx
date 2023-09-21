@@ -5,8 +5,8 @@ import { BiVideo } from "react-icons/bi"
 import { CgMoreVerticalAlt } from "react-icons/cg"
 import { BsFileEarmarkText } from "react-icons/bs"
 import { BiSolidMessageAltDetail, BiImage, BiSolidPhoneCall } from "react-icons/bi"
-import { IoMdClose, IoMdDownload } from "react-icons/io";
-import { MdFavorite } from "react-icons/md";
+import { IoMdClose, IoMdDownload } from "react-icons/io"
+import { MdFavorite } from "react-icons/md"
 import { FiMoreHorizontal } from "react-icons/fi"
 import mediaOne from "../../assets/media1.jpg"
 import mediaTwo from "../../assets/media2.jpg"
@@ -31,13 +31,8 @@ export default function Drawer({ isOpen, openMenu, setIsOpen, handleRightMenu }:
           {filteredContacts.map(contact => (
             <div key={contact.name} className="w-full relative">
               <div className="w-full">
-<<<<<<< HEAD
                 <div className="w-full h-[300px]">
                   <img src={contact.image} alt={contact.name} className="rounded-md w-full h-[290px] object-cover" />
-=======
-                <div className="w-full">
-                  <img src={contact.image} alt={contact.name} className="rounded-md w-full h-[300px]" />
->>>>>>> 66bebf5510770a8755befd7ceb05b1396d07c5f0
                 </div>
                 <div className="absolute top-0 w-full h-full bg-black opacity-50 rounded-md"></div>
 
