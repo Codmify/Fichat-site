@@ -1,4 +1,3 @@
-import React from 'react'
 import Heading from './Heading';
 import FormHeading from './FormHeading';
 import InfoCard from './InfoCard';

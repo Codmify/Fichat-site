@@ -17,7 +17,7 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
 
   const handleAddImages = () => {
     // Logic to handle adding images goes here
-    setIsAddingImages(true);
+    setIsAddingImages(!isAddingImages);
   };
 
   return (
@@ -35,6 +35,7 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
       </div>
 
       <div className="">
+        <button onClick={handleAddImages}></button>
         <div className="flex space-x-1 rounded">
           {imageUrls.slice(0, visibleImageCount).map((imageUrl, index) => (
             <img

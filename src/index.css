@@ -90,6 +90,8 @@ body {
     --bs-white-rgb: 255,255,255;
     --bs-black-rgb: 0,0,0;
     --bs-body-bg-rgb: 250,250,250;
+<<<<<<< HEAD
+=======
     --bs-font-sans-serif: "Cerebri Sans,sans-serif";
     --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
     --bs-gradient: linear-gradient(180deg,hsla(0,0%,100%,.15),hsla(0,0%,100%,0));
@@ -97,5 +99,6 @@ body {
     --bs-body-font-size: .9375rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
+>>>>>>> 66bebf5510770a8755befd7ceb05b1396d07c5f0
     --bs-body-bg: #fafafa;
 } */
