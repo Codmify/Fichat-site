@@ -31,8 +31,13 @@ export default function Drawer({ isOpen, openMenu, setIsOpen, handleRightMenu }:
           {filteredContacts.map(contact => (
             <div key={contact.name} className="w-full relative">
               <div className="w-full">
+<<<<<<< HEAD
                 <div className="w-full h-[300px]">
                   <img src={contact.image} alt={contact.name} className="rounded-md w-full h-[290px] object-cover" />
+=======
+                <div className="w-full">
+                  <img src={contact.image} alt={contact.name} className="rounded-md w-full h-[300px]" />
+>>>>>>> 66bebf5510770a8755befd7ceb05b1396d07c5f0
                 </div>
                 <div className="absolute top-0 w-full h-full bg-black opacity-50 rounded-md"></div>
 
