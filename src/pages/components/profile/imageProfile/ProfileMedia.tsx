@@ -9,10 +9,15 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
   const [visibleImageCount, setVisibleImageCount] = useState(
     maxInitialImagesToShow
   );
-  // const [isAddingImages, setIsAddingImages] = useState(false);
+  const [isAddingImages, setIsAddingImages] = useState(false);
 
   const handleShowAll = () => {
     setVisibleImageCount(imageUrls.length);
+  };
+
+  const handleAddImages = () => {
+    // Logic to handle adding images goes here
+    setIsAddingImages(!isAddingImages);
   };
 
   return (
@@ -31,6 +36,8 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
 
       <div className="">
         <div className="flex space-x-2">
+        <button onClick={handleAddImages}></button>
+        <div className="flex space-x-1 rounded">
           {imageUrls.slice(0, visibleImageCount).map((imageUrl, index) => (
             <img
               src={imageUrl}
@@ -42,6 +49,7 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
         </div>
       </div>
     </div>
+  
   );
 };
 
