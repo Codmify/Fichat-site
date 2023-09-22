@@ -4,7 +4,9 @@ import ImageProfile from "./assets/gt1.jpeg";
 import ProfileImage from "./imageProfile/ProfileImage";
 import ProfileText from "./imageProfile/ProfileText";
 
+
 const Profile = () => {
+ 
   return (
     <>
       <section>
