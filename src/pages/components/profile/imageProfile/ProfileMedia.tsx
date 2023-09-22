@@ -21,8 +21,8 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
   };
 
   return (
-    <div className="h-full w-full space-y-4 pb-10">
-      <div className="flex justify-between ">
+    <div className="h-full w-full space-y-4">
+      <div className="flex justify-between">
         <h1 className="uppercase text-sm">media</h1>
         {imageUrls.length > maxInitialImagesToShow && (
           <span
@@ -35,21 +35,20 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
       </div>
 
       <div className="">
-        <div className="flex space-x-2">
-        <button onClick={handleAddImages}></button>
+        <button onClick={handleAddImages}>
         <div className="flex space-x-1 rounded">
           {imageUrls.slice(0, visibleImageCount).map((imageUrl, index) => (
             <img
               src={imageUrl}
               alt={`Image ${index + 1}`}
-              className="w-[68px] lg:w-[4.5rem] h-20 rounded"
+              className="w-[68px] h-20"
               key={index}
             />
           ))}
         </div>
+        </button>
       </div>
     </div>
-  
   );
 };
 
