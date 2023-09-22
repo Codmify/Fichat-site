@@ -35,7 +35,7 @@ const DropDownY: React.FC = () => {
       {isDropdownOpen && (
         <div
           id="dropdown"
-          className="z-10 bg-slate-400 divide-y absolute -left-[7rem] right-0 md:left-0 divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-700"
+          className="z-10 bg-slate-400 divide-y absolute -left-[7rem] right-0 lg:left-0 divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-700"
           role="menu"
           aria-labelledby="dropdownDefaultButton"
         >
