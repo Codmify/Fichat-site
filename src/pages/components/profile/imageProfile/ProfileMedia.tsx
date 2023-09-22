@@ -30,7 +30,7 @@ const ProfileMedia: React.FC<ProfileMediaProps> = ({ imageUrls }) => {
       </div>
 
       <div className="">
-        <div className="flex space-x-2 ">
+        <div className="flex space-x-2">
           {imageUrls.slice(0, visibleImageCount).map((imageUrl, index) => (
             <img
               src={imageUrl}

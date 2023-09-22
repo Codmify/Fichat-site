@@ -1,14 +1,26 @@
 import { useState } from "react";
+import Notification from "../contactNotifications/Notification";
 
-const DropDownModal = () => {
-  const [isDropDownModal, setDropDownModal] = useState(false);
+const Modal = () => {
+  const [isModal, setModal] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const toggleDropdown = () => {
-    setDropDownModal((prevState) => !prevState);
+    setModal((prevState) => !prevState);
+  };
+
+  const handleInviteClick = () => {
+    // Display a notification when "Invite" is clicked
+    setShowNotification(true);
+    console.log(setShowNotification);
+  };
+
+  const handleNotificationClose = () => {
+    setShowNotification(false);
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block ">
       <button
         data-modal-target="defaultModal"
         data-modal-toggle="defaultModal"
@@ -30,14 +42,14 @@ const DropDownModal = () => {
           />
         </svg>
       </button>
-
-      {isDropDownModal && (
+      {/* modal */}
+      {isModal && (
         <div
           id="defaultModal"
           onClick={toggleDropdown}
           // tabindex="-1"
           aria-hidden="true"
-          className="fixed top-0 left-0 right-0 z-50  md:w-[60%] p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full text-center flex justify-center mx-auto items-center"
+          className="fixed top-0 left-0 right-0 z-50 md:w-[60%] p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full text-center flex justify-center mx-auto items-center"
         >
           <div className="relative w-full max-w-2xl max-h-full">
             <div className="relative bg-white rounded-3xl shadow dark:bg-gray-700">
@@ -70,14 +82,17 @@ const DropDownModal = () => {
               </div>
 
               <div className="p-6 space-y-6"></div>
+
               <div className="flex flex-row-reverse items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                 <button
                   data-modal-hide="defaultModal"
+                  onClick={handleInviteClick}
                   type="button"
                   className="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   invite
                 </button>
+
                 <button
                   data-modal-hide="defaultModal"
                   type="button"
@@ -90,8 +105,19 @@ const DropDownModal = () => {
           </div>
         </div>
       )}
+      {/* notification */}
+      {showNotification && (
+        <div
+          id="toast-success"
+          className="top-0 -left-[16rem] right-0 md:-right-[20rem] lg:left-0 z-50 absolute text-gray-500 rounded-xl"
+          role="alert"
+        >
+          {/* Rest of the notification code */}
+          <Notification onClose={handleNotificationClose} />
+        </div>
+      )}
     </div>
   );
 };
 
-export default DropDownModal;
+export default Modal;

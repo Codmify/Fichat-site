@@ -1,6 +1,6 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { Outlet } from "react-router-dom";
-import DropDownModal from "../profile/dropdown/DropDownModal.";
+import DropDownModal from "./contactsModal/Modal.";
 
 const Contacts = () => {
   return (
@@ -11,9 +11,10 @@ const Contacts = () => {
             <div>
               <h1 className="text-lg font-bold">Contact Page</h1>
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-end hover:bg-">
               <DropDownModal />
             </div>
+            
           </div>
 
           <div className="relative flex-grow flex flex-row-reverse">
