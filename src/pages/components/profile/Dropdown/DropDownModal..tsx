@@ -26,7 +26,7 @@ const DropDownModal = () => {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+            d="M12 6v12m6-6H6"
           />
         </svg>
       </button>
@@ -69,9 +69,7 @@ const DropDownModal = () => {
                 </button>
               </div>
 
-              <div className="p-6 space-y-6">
-               
-              </div>
+              <div className="p-6 space-y-6"></div>
               <div className="flex flex-row-reverse items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                 <button
                   data-modal-hide="defaultModal"
