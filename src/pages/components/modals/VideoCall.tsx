@@ -14,12 +14,10 @@ const VideoCall = () => {
   return (
     <section className="">
       {contactId.map(contact => (
-        <div key={contact.id} className='w-full flex flex-col justify-center items-center'>
-          <div key={contact.id} className="w-full">
-            <img src={contact.image} alt="" className="relative top-0 w-full rounded-lg" />
-          </div>
+        <div key={contact.id} className='w-full flex flex-col justify-center items-center relative'>
+          <img src={contact.image} alt="" className="rounded-lg h-[320px] w-[500px] object-cover" />
 
-          <div className="flex items-center justify-center gap-6 absolute ">
+          <div className="flex items-center justify-center absolute gap-6 w-full z-[1]">
             <div className="flex flex-col items-center gap-y-1">
               <div className="bg-[#302f2f] hover:bg-[#3a3939] cursor-pointer font-[700] text-[#8f9198] rounded-full p-2 w-fit">
                 <BsMicMute size={20} />
@@ -38,14 +36,14 @@ const VideoCall = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center  gap-y-1">
+            <div className="flex flex-col items-center gap-y-1">
               <div className="bg-[#302f2f] hover:bg-[#3a3939] cursor-pointer text-[#8f9198] rounded-full p-2 w-fit">
                 <BiRefresh size={20} />
               </div>
             </div>
           </div>
 
-          <div className="bg-[#42925d] h-16 md:h-20 lg:h-18 absolute bottom-0 w-full rounded-bl-lg rounded-br-lg"></div>
+          <div className="bg-[#42925d] h-20 w-full absolute bottom-0 rounded-bl-lg rounded-br-lg"></div>
 
           <div className="flex absolute bottom-2 flex-col items-center gap-1 z-10">
             <div className="bg-[#ef476f] text-white w-fit p-5 border-[6px] border-[#2e2e2e] rounded-full cursor-pointer hover:bg-[#fd5179]">
@@ -53,6 +51,7 @@ const VideoCall = () => {
             </div>
             <h2 className="font-[600] text-white/70">{contact.name}</h2>
           </div>
+
         </div>
       ))}
     </section>

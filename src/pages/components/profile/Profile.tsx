@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
-import DropDownY from "./dropdown/DropDownY";
+import DropDownY from "./Dropdown/DropDownY";
 import ImageProfile from "./assets/gt1.jpeg";
 import ProfileImage from "./imageProfile/ProfileImage";
 import ProfileText from "./imageProfile/ProfileText";
 
+
 const Profile = () => {
+ 
   return (
     <>
       <section className="bg-[#262626] min-h-screen basis-full lg:basis-[29%] text-[#8f9198] md:left-[90px] md:ml-[84px] lg:ml-0 lg:relative">

@@ -14,8 +14,8 @@ const VoiceCall = () => {
     return (
         <section className="bg-[#262626] pt-6 text-[#8f9198] rounded-lg">
             {contactId.map(contact => (
-                <>
-                    <div key={contact.id}>
+                <div key={contact.id}>
+                    <div>
                         <img src={contact.image} alt="" className="rounded-full h-20 w-20 border-[5px] border-[#424242] mx-auto" />
                     </div>
 
@@ -51,7 +51,7 @@ const VoiceCall = () => {
 
                     <div className="bg-[#318f5165] w-full py-11 rounded-bl-lg rounded-br-lg relative">
                     </div>
-                </>
+                </div>
             ))}
         </section>
     )

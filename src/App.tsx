@@ -28,6 +28,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard" element={<Chat />}>
             <Route index element={<Welcome />} />
+            <Route path="chats" element={<Welcome />} />
             <Route path="chats/:id" element={<Chatting />} />
           </Route>
           
