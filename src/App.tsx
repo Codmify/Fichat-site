@@ -31,6 +31,7 @@ function App() {
             <Route path="chats" element={<Welcome />} />
             <Route path="chats/:id" element={<Chatting />} />
           </Route>
+          
           <Route path="profile" element={<Profile />}>
             <Route index element={<Welcome />} />
           </Route>
