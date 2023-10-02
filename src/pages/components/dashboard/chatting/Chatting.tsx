@@ -14,8 +14,7 @@ const Chatting = () => {
   const [message, setMessage] = useState<string>("")
 
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value)
   }
 

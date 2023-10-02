@@ -20,7 +20,7 @@ const Group = () => {
 
     return (
         <section className="bg-[#262626]  text-[#8f9198] rounded-lg">
-            <header className="flex justify-between items-center py-2 px-4 border-b-[0.25px] border-[rgba(143,145,152,0.6)]">
+            <header className="flex justify-between items-center py-3 px-4 border-b-[0.25px] border-[rgba(143,145,152,0.6)]">
                 <h2 className="text-md text-[#8f9198] font-[700] my-1">Create New Group</h2>
                 <button
                     className="bg-transparent rounded-lg p-1.5 ml-auto inline-flex items-center hover:text-white text-[#8f9198] text-lg"
@@ -51,7 +51,7 @@ const Group = () => {
                                 <h2 className="sticky top bg-[#3d3d3d] text-white/80 px-4 py-2 w-full rounded-tl-md rounded-tr-md">Contacts</h2>
                             </div>
 
-                            <ul className="max-h-[150px] overflow-y-auto px-4 pt-2 pb-4">
+                            <ul className="max-h-[200px] overflow-y-auto px-4 pt-2 pb-4">
                                 {uniqueCharacter.map(alphabet => (
                                     <li
                                         key={alphabet}

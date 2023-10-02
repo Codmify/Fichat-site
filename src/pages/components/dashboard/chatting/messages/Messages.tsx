@@ -71,7 +71,7 @@ export default function Messages({ isSent, allMessages }: Props) {
                     ))}
                 </div>
             ))}
-            <div ref={scrollRef}></div>
-        </section >
+            <div ref={scrollRef} className="pb-8 lg:pb-4"></div>
+        </section>
     )
 }
