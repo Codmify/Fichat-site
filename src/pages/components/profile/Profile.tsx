@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import DropDownY from "./dropdown/DropDownY";
+import DropDownY from "./Dropdown/DropDownY";
 import ImageProfile from "./assets/gt1.jpeg";
 import ProfileImage from "./imageProfile/ProfileImage";
 import ProfileText from "./imageProfile/ProfileText";
