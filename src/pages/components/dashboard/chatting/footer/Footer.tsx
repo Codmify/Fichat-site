@@ -5,7 +5,7 @@ import { IoMdSend } from "react-icons/io"
 
 type Props = {
     message: string,
-    handleChange: (e: ChangeEvent<HTMLInputElement>) => void
+    handleChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 
@@ -16,15 +16,15 @@ export default function Footer({ message, handleChange, handleSubmit }: Props) {
             <form className="flex items-center gap-4 md:gap-6" onSubmit={handleSubmit}>
                 <FiMoreHorizontal size={20} className="cursor-pointer" />
                 <BsEmojiSmile size={20} className="cursor-pointer" />
-                <input
-                    type="text"
+                <textarea
                     id="message"
                     value={message}
-                    onChange={handleChange}
                     name="message"
+                    onChange={handleChange}
                     autoComplete="off"
-                    className="w-full bg-[#262626] text-white/90 font-[500] rounded-md border-none outline-0 outline-none text-[1rem] tracking-wide py-3 placeholder:font-[400]"
-                    placeholder="Type your message..." />
+                    rows={1}
+                    className="w-full bg-[#262626] text-white/90 font-[500] rounded-md border-none outline-none resize-none shadow-none text-[1rem] tracking-wide py-4 placeholder:font-[400]"
+                    placeholder="Type your message..."></textarea>
                 <BsMic size={20} className="cursor-pointer hidden md:flex" />
                 <button className="hover:bg-[#4eac6d] text-white/90 py-2 px-4 rounded-[4px] font-[600] bg-[#4eac6d]/60" disabled={!message}><IoMdSend size={20} className="cursor-pointer" /></button>
             </form>

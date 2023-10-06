@@ -1,7 +1,6 @@
 import { BiSolidPhoneCall, BiVideo } from "react-icons/bi"
 import { BsFillInfoCircleFill } from "react-icons/bs"
 import { FiChevronLeft } from "react-icons/fi"
-import { FaSearch } from "react-icons/fa"
 import { CgMoreVerticalAlt } from "react-icons/cg"
 import { useSetRecoilState } from "recoil"
 import { Link, useParams } from "react-router-dom"
@@ -32,7 +31,7 @@ export default function Header({ handleLeftMenu, isMenu, setIsOpen }: Props) {
 
 
     return (
-        <header className="bg-[#2e2e2e] text-[#8f9198] sticky top-0 z-40 w-full border-b-[0.25px] border-b-[#3d3d3d]">
+        <header className="bg-[#2e2e2e] text-[#8f9198] sticky right-0 left-0 top-0 z-40 w-full border-b-[0.25px] border-b-[#3d3d3d]">
             <div className="flex justify-between items-center w-full gap-2 py-3 pr-4 pl-1 md:p-4 lg:p-6">
                 {filteredContacts.map(contact => (
                     <div key={contact.name} className="flex gap-3 items-center">
@@ -50,8 +49,8 @@ export default function Header({ handleLeftMenu, isMenu, setIsOpen }: Props) {
                     </div>
                 ))}
 
-                <div className="flex gap-3 sm:gap-4 lg:gap-8 items-center relative">
-                    <FaSearch size={20} className="cursor-pointer hidden lg:flex" />
+
+                <div className="flex gap-4 lg:gap-8 items-center relative">
 
                     <BiSolidPhoneCall size={20} className="cursor-pointer" onClick={handleVoiceCall} />
 

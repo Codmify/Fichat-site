@@ -35,24 +35,12 @@ const DropDownY: React.FC = () => {
       {isDropdownOpen && (
         <div
           id="dropdown"
-          className="z-10 bg-slate-400 divide-y absolute -left-[7rem] right-0 md:left-0 divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-700"
+          className="z-10 bg-slate-400 divide-y absolute -left-[7rem] right-0 lg:left-0 divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-700"
           role="menu"
           aria-labelledby="dropdownDefaultButton"
         >
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
             <li className="flex justify-between px-4  hover:bg-gray-400 dark:hover:bg-gray-600 dark:hover:text-white items-center">
-              {/* <NavLink to="/settings">
-                {({ isActive }) => (
-                  <a
-                    className={isActive ? "active" : "block py-2"}
-                    href="#"
-                    role="menuitem"
-                  >
-                    info{" "}
-                  </a>
-                )}
-              </NavLink> */}
-
               <Link to="/info" className="block py-2" relative="path">
                 info
               </Link>
@@ -76,18 +64,6 @@ const DropDownY: React.FC = () => {
             </li>
 
             <li className="flex justify-between px-4  hover:bg-gray-400 dark:hover:bg-gray-600 dark:hover:text-white items-center">
-              {/* <NavLink to="/settings">
-                {({ isActive }) => (
-                  <a
-                    className={isActive ? "active" : "block py-2"}
-                    href="#"
-                    role="menuitem"
-                  >
-                    Settings
-                  </a>
-                )}
-              </NavLink> */}
-
               <Link to="/Settings" className="block py-2" relative="path">
                 Settings
               </Link>
@@ -114,18 +90,6 @@ const DropDownY: React.FC = () => {
             </li>
 
             <li className="flex justify-between px-4  hover:bg-gray-400 dark:hover:bg-gray-600 dark:hover:text-white items-center">
-              {/* <NavLink to="/settings">
-                {({ isActive }) => (
-                  <a
-                    className={isActive ? "active" : "block py-2"}
-                    href="#"
-                    role="menuitem"
-                  >
-                    Help
-                  </a>
-                )}
-              </NavLink> */}
-
               <Link to="/help" className="block py-2" relative="path">
                 Help
               </Link>

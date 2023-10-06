@@ -9,17 +9,29 @@ import { RecoilRoot } from "recoil"
 import Chatting from "./pages/components/dashboard/chatting/Chatting"
 import Dashboard from "./pages/components/dashboard/Dashboard"
 import Welcome from "./pages/components/dashboard/welcome/Welcome"
+import Login from "./pages/components/Auth/Login"
+import Register from "./pages/components/Auth/Register"
+import ForgotPassword from "./pages/components/Auth/ForgotPassword"
+import Verification from "./pages/components/Auth/Verification"
+import Verified from "./pages/components/Auth/Verified"
 
 
 function App() {
   return (
     <RecoilRoot>
       <Routes>
+        <Route path="/" element = {<Login/>}/>
+        <Route path="register" element={<Register />} />
+        <Route path="recovery" element={<ForgotPassword />}/>
+        <Route path="onestepaway" element={<Verification />}/>
+        <Route path="verified" element={<Verified />}/>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard" element={<Chat />}>
             <Route index element={<Welcome />} />
+            <Route path="chats" element={<Welcome />} />
             <Route path="chats/:id" element={<Chatting />} />
           </Route>
+          
           <Route path="profile" element={<Profile />}>
             <Route index element={<Welcome />} />
           </Route>
