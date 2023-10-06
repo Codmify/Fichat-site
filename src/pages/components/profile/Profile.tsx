@@ -7,7 +7,7 @@ import ProfileText from "./imageProfile/ProfileText";
 const Profile = () => {
   return (
     <>
-      <section className="bg-[#262626] min-h-screen basis-full lg:basis-[29%] text-[#8f9198] md:left-[90px] md:ml-[84px] lg:ml-0 lg:relative">
+      <section className="bg-[#262626] min-h-screen  lg:min-w-[23%] basis-full lg:basis-[34%] text-[#8f9198] md:left-[90px] md:ml-[84px] lg:ml-0 lg:relative">
         <img src={ImageProfile} alt="no image" className="w-full h-40" />
 
         <div className="lg:max-w-[18rem]">
