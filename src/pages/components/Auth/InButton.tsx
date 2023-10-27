@@ -2,7 +2,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 
 interface InButtonProps {
     label: string;
-    loading: boolean;
+    loading?: boolean;
 }
 
 const InButton: React.FC<InButtonProps> = ({label, loading}) => {
