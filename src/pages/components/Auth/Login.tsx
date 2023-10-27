@@ -5,7 +5,9 @@ import FormHeading from "./FormHeading";
 import InButton from "./InButton";
 import SignInWith from "./SignInWith";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import axios from "axios";
 
 interface FormData {
     email: string;
@@ -16,7 +18,6 @@ interface Errors {
     email?: string;
     password?: string;
   }
-
 const Login: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -46,9 +47,14 @@ const Login: React.FC = () => {
         return !hasEmptyField;
       };
     
+      // React States
       const [formData, setFormData] = useState<FormData>(initialFormData);
-    
       const [errors, setErrors] = useState<Errors>({});
+      const [loading, setLoading] = useState(false);
+      const [accessToken, setAccessToken] = useState('');
+      const [refreshToken, setRefreshToken] = useState('');
+      const [rememberMe, setRememberMe] = useState(false);
+
     
       const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -73,7 +79,7 @@ const Login: React.FC = () => {
         }
       };
     
-      const handleSubmit = (event: React.FormEvent) => {
+      const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
         
@@ -93,10 +99,55 @@ const Login: React.FC = () => {
     // Perform authentication logic here if validations pass
     const hasErrors = Object.values(errors).some((error) => error !== '');
     if (!hasErrors) {
-        navigate('/dashboard')
+        try {
+          setLoading(true);
+          const res = await axios.post(
+              `${import.meta.env.VITE_BASE_API_URL}/auth/user/form-login`,
+              formData
+              );
+              console.log(res.data);
+              setAccessToken(res.data.accessToken);
+              setRefreshToken(res.data.refreshToken);
+              toast.success(`${res.data.message}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+              });
+              setLoading(false)
+              sessionStorage.setItem("access_token", accessToken);
+              navigate('/dashboard');
+          } catch (error) {
+            toast.error(`${error}`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              
+            });
+            setLoading(false)
+          }
         }
       };
 
+      // Update local storage when the rememberMe state changes
+      useEffect(() => {
+        if (rememberMe) {
+          localStorage.setItem('refresh_token', refreshToken);
+        } else {
+          localStorage.removeItem('refresh_token');
+        }
+      }, [rememberMe, refreshToken]);
+
+      // The height of the form container
     let screenHeight;
     if(location.pathname === "/register"){
         screenHeight = "h-full";
@@ -105,6 +156,9 @@ const Login: React.FC = () => {
         screenHeight = "h-screen";
     }
    
+    const handleCheckboxChange = () => {
+      setRememberMe(!rememberMe);
+    }
     return (
         <div className="conatainer text-white min-h-screen bg-[#4eac6d] pb-5 md:pb-0">
             <div className={`flex flex-col md:flex-row lg:${screenHeight} p-3 py-0 md:p-5 relative`}>
@@ -150,10 +204,12 @@ const Login: React.FC = () => {
                                 label="Remember me"
                                 inputId='rememberMe'
                                 labelFor="rememberMe"
+                                onChange={handleCheckboxChange}
                             />
                             <div className="text-[#8f9198] text-sm md:text-[0.96rem]">By registering you agree to the Doot <a href="" className="text-[#4eac6d]">Terms of Use</a></div>
                             <InButton 
                                 label="Login"
+                                loading={loading}
                             />
                             <SignInWith text= "Sign in with"/>
                             <div className="text-[#8f9198] mt-0 md:mt-3 mb-6 text-center text-sm z-10">
