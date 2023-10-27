@@ -4,7 +4,10 @@ import FormHeading from "./FormHeading";
 import InButton from "./InButton";
 import SignInWith from "./SignInWith";
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { toast } from 'react-toastify';
+
 
 interface FormData {
     email: string;
@@ -51,6 +54,9 @@ const Register: React.FC = () => {
       const [formData, setFormData] = useState<FormData>(initialFormData);
     
       const [errors, setErrors] = useState<Errors>({});
+
+      const [apidata, setApidata] = useState(null);
+      const [loading, setLoading] = useState(false);
     
       const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -75,10 +81,9 @@ const Register: React.FC = () => {
         }
       };
     
-      const handleSubmit = (event: React.FormEvent) => {
+      const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        
          // Validate each input for empty and format
         let allValid = true;
         Object.keys(formData).forEach((inputName) => {
@@ -95,11 +100,42 @@ const Register: React.FC = () => {
         // Perform authentication logic here if validations pass
         const hasErrors = Object.values(errors).some((error) => error !== '');
         if (!hasErrors) {
-        navigate('/onestepaway')
+          setLoading(true);
+            try {
+              const res = await axios.post(
+                  `${import.meta.env.VITE_BASE_API_URL}/auth/user/form-register`,
+                  formData
+                  );
+                  setApidata(res.data);
+                  setLoading(false);
+                  toast.success('Successful!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                  });
+                  // navigate to email verification page
+                  navigate('/onestepaway');
+            } catch (error) {
+              toast.error("An error occured. Check your details!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+              });
+              setLoading(false);
+            }
         // console.log(errors)
         }
-      };
-
+    };
     return (
         <div className="conatainer text-white min-h-screen bg-[#4eac6d]">
             <div className="flex flex-col md:flex-row h-full p-3 py-0 md:p-5 relative">
@@ -157,6 +193,7 @@ const Register: React.FC = () => {
                             <div className="text-[#8f9198] text-sm md:text-[0.96rem]">By registering you agree to the Doot <a href="" className="text-[#4eac6d]">Terms of Use</a></div>
                             <InButton 
                                 label="Register"
+                                loading ={loading}
                             />
                             <SignInWith text= "Sign up with"/>
                             <div className="text-[#8f9198] mt-0 md:mt-3 mb-6 text-center text-sm z-10">
