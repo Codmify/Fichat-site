@@ -4,7 +4,7 @@ import FormHeading from "./FormHeading";
 import InButton from "./InButton";
 import SignInWith from "./SignInWith";
 import { Link, useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import { toast } from 'react-toastify';
 
@@ -118,6 +118,7 @@ const Register: React.FC = () => {
                     progress: undefined,
                     theme: "dark",
                   });
+                  console.log(apidata)
                   // navigate to email verification page
                   navigate('/onestepaway');
             } catch (error) {
