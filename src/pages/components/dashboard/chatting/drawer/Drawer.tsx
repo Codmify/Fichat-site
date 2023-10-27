@@ -5,8 +5,8 @@ import { BiVideo } from "react-icons/bi"
 import { CgMoreVerticalAlt } from "react-icons/cg"
 import { BsFileEarmarkText } from "react-icons/bs"
 import { BiSolidMessageAltDetail, BiImage, BiSolidPhoneCall } from "react-icons/bi"
-import { IoMdClose, IoMdDownload } from "react-icons/io";
-import { MdFavorite } from "react-icons/md";
+import { IoMdClose, IoMdDownload } from "react-icons/io"
+import { MdFavorite } from "react-icons/md"
 import { FiMoreHorizontal } from "react-icons/fi"
 import mediaOne from "../../assets/media1.jpg"
 import mediaTwo from "../../assets/media2.jpg"
@@ -26,13 +26,13 @@ export default function Drawer({ isOpen, openMenu, setIsOpen, handleRightMenu }:
 
 
   return (
-    <section className={` ${isOpen ? "lg:relative fixed z-30 left-0 basis-full lg:basis-[45%] bg-[#262626] text-[#8f9198] duration-75 h-screen overflow-y-auto overflow-x-hidden" : "basis-0 flex-grow-0 flex-shrink-0 p-0 overflow-hidden duration-75"}`}>
-        <header className="sticky top-0 p-4 border-b-[0.25px] border-b-[#3d3d3d] pb-4">
+    <section className={`relative ${isOpen ? "z-30 left-0 basis-full lg:basis-[35%] bg-[#262626] text-[#8f9198] duration-75 h-screen overflow-y-auto overflow-x-hidden" : "basis-0 flex-grow-0 flex-shrink-0 p-0 overflow-hidden duration-75"}`}>
+        <header className="sticky top-0 p-4 border-b-[0.25px] bg-[#212121] border-b-[#3d3d3d] pb-4 z-20">
           {filteredContacts.map(contact => (
             <div key={contact.name} className="w-full relative">
               <div className="w-full">
-                <div className="w-full">
-                  <img src={contact.image} alt={contact.name} className="rounded-md w-full h-[300px]" />
+                <div className="w-full h-[300px]">
+                  <img src={contact.image} alt={contact.name} className="rounded-md w-full h-[300px] object-cover" />
                 </div>
                 <div className="absolute top-0 w-full h-full bg-black opacity-50 rounded-md"></div>
 
@@ -57,11 +57,10 @@ export default function Drawer({ isOpen, openMenu, setIsOpen, handleRightMenu }:
           ))}
         </header>
 
-
-        <article className="p-4 max-h-[45%] overflow-y-auto">
+        <article className="p-4 overflow-y-auto pb-8">
 
           {/* --------------- Activity Icons --------------------- */}
-          <div className="border-b-[0.25px] border-b-[#3d3d3d] flex items-center justify-between gap-4 pb-6 pt-4">
+          <div className="border-b-[0.25px] border-b-[#3d3d3d] flex items-center justify-between flex-wrap gap-4 pb-6 pt-4">
             <div className="flex flex-col items-center  gap-y-1">
               <div className="bg-[#302f2f] cursor-pointer text-[#8f9198] rounded-[4px] p-2 w-fit">
                 <BiSolidMessageAltDetail size={15} />

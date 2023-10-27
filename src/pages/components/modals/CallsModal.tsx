@@ -12,12 +12,13 @@ const CallsModal = () => {
 
     return (
         <>
-            <section className='absolute left-0 top-0 w-full h-full flex items-center justify-center bg-black bg-opacity-70 z-40' onClick={closeModal}></section>
+            <section className='absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-70 z-40' onClick={closeModal}></section>
 
-            <div className="flex absolute sm:left-[12%] left-0 md:left-[30%] top-[20%] md:top-[25%] w-full mx-auto sm:w-[500px] h-[320px] items-center justify-center z-50">
+           
+            <div className="fixed left-[50%] top-[50%] w-full mx-auto max-w-[500px] h-[320px] translate-x-[-50%] translate-y-[-50%] z-50 active_modal">
                 <div className="w-full flex justify-center items-center">
-                    <div className="relative w-full h-full mx-auto flex items-center justify-center">
-                        <div className="bg-[#2e2e2e] rounded-lg shadow relative w-full mx-6">
+                    <div className="w-full h-full mx-auto flex items-center justify-center">
+                        <div className="bg-[#2e2e2e] rounded-lg shadow w-full mx-6">
                             {callState.type === "voice" ? <VoiceCall /> : <VideoCall />}
                         </div>
                     </div>

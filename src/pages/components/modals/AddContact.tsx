@@ -51,7 +51,7 @@ const AddContact = () => {
           {uniqueCharacter.map(alphabet => (
             <li
               key={alphabet}
-              className={`list-none ${alphabet.toLowerCase().includes(inputValue) ? "block" : "hidden"}`}
+              className={`list-none ${alphabet.toLowerCase().includes(inputValue) || alphabet.toUpperCase().includes(inputValue) ? "block" : "hidden"}`}
             >
               <div className='flex items-center gap-6 py-3'>
                 <p className='text-[#4eac6d] font-[600]'>{alphabet}</p>
@@ -62,7 +62,7 @@ const AddContact = () => {
                 .map(char => (
                   <div
                     key={char.name}
-                    className={`flex items-center flex-row-reverse gap-2 py-2 cursor-pointer ml-4 w-fit ${char.name.toLowerCase().includes(inputValue) ? "block" : "hidden"}`}
+                    className={`flex items-center flex-row-reverse gap-2 py-2 cursor-pointer ml-4 w-fit ${char.name.toLowerCase().includes(inputValue) || char.name.toUpperCase().includes(inputValue) ? "block" : "hidden"}`}
                   >
                     <label
                       htmlFor={char.name}
