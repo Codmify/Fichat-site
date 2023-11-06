@@ -12,8 +12,8 @@ import Welcome from "./pages/components/dashboard/welcome/Welcome"
 import Login from "./pages/components/Auth/Login"
 import Register from "./pages/components/Auth/Register"
 import ForgotPassword from "./pages/components/Auth/ForgotPassword"
-import Verification from "./pages/components/Auth/Verification"
-import Verified from "./pages/components/Auth/Verified"
+import VerifyEmail from "./pages/components/Auth/VerifyEmail"
+import OneStepAway from "./pages/components/Auth/OneStepAway"
 
 
 function App() {
@@ -23,8 +23,8 @@ function App() {
         <Route path="/" element = {<Login/>}/>
         <Route path="register" element={<Register />} />
         <Route path="recovery" element={<ForgotPassword />}/>
-        <Route path="onestepaway" element={<Verification />}/>
-        <Route path="verified" element={<Verified />}/>
+        <Route path="onestepaway" element={<OneStepAway />}/>
+        <Route path="verify" element={<VerifyEmail />}/>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard" element={<Chat />}>
             <Route index element={<Welcome />} />

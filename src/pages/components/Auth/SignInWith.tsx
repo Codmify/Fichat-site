@@ -17,10 +17,11 @@ const customTheme: CustomFlowbiteTheme = {
 
 interface WithProps {
   text: string;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
     
 
-const SignInWith: React.FC<WithProps> = ({text}) => {
+const SignInWith: React.FC<WithProps> = ({text, onClick}) => {
 
     return (
         <div className='flex flex-col gap-6 z-20'>
@@ -31,7 +32,7 @@ const SignInWith: React.FC<WithProps> = ({text}) => {
             <div className='flex justify-center gap-4 w-full'>
                 <Flowbite theme={{ theme: customTheme }}>
                     <Tooltip content="Google" className='bg-black text-sm font-normal py-1 rounded-md'>
-                        <a href='#' className='block text-sm px-10 rounded py-2.5 bg-[#333]'>
+                        <a href='#' onClick={onClick} className='block text-sm px-10 rounded py-2.5 bg-[#333]'>
                             <FcGoogle/>
                         </a>
                     </Tooltip>
