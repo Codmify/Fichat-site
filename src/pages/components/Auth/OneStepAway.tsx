@@ -1,7 +1,7 @@
 import Heading from './Heading';
 import FormHeading from './FormHeading';
 import InfoCard from './InfoCard';
-import InButton from './InButton';
+// import InButton from './InButton';
 import { Link } from 'react-router-dom';
 
 

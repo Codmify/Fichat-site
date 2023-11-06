@@ -171,6 +171,7 @@ const callGAuth = async () => {
     if (oAuthData !== null) {
       console.log(oAuthData);
       setAuthUrl(oAuthData.authUrl || "");
+      console.log(authUrl);
       // You can also navigate here if needed
       window.location.href = oAuthData.authUrl;
       // navigate to email verification page
