@@ -21,6 +21,9 @@ interface FormData {
     username?: string;
   }
 
+  type OAuthData = {
+    authUrl: string;
+  };
 
 const Register: React.FC = () => {
     const navigate = useNavigate();
@@ -56,7 +59,9 @@ const Register: React.FC = () => {
       const [errors, setErrors] = useState<Errors>({});
 
       const [apidata, setApidata] = useState(null);
+      const [oAuthData, setoAuthData] = useState<OAuthData | null>(null);
       const [loading, setLoading] = useState(false);
+      const [authUrl, setAuthUrl] = useState('')
     
       const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -137,6 +142,73 @@ const Register: React.FC = () => {
         // console.log(errors)
         }
     };
+
+    // useEffect(() => {
+    // const fetchData = async () => {
+    //   let data = null;
+    //   while (data === null) {
+    //     data = await callGAuth();
+    //     if (data === null) {
+    //       // Add a delay (e.g., 1 second) before calling again to avoid excessive requests
+    //       await new Promise(resolve => setTimeout(resolve, 1000));
+    //     } else {
+    //       // Data is available, you can work with it here
+    //       console.log(data);
+    //     }
+    //   }
+    // };
+
+    // fetchData();
+    // }, []);
+
+      
+const callGAuth = async () => {
+  try {
+    const res = await axios.get(`${import.meta.env.VITE_BASE_API_URL}/auth/google/getauthurl`);
+    setoAuthData(res.data);
+    setLoading(false);
+
+    if (oAuthData !== null) {
+      console.log(oAuthData);
+      setAuthUrl(oAuthData.authUrl || "");
+      // You can also navigate here if needed
+      window.location.href = oAuthData.authUrl;
+      // navigate to email verification page
+      // navigate('/onestepaway');
+    } else {
+      // Handle the case where oAuthData is null
+      // Maybe show an error message or take some other action
+    }
+    
+    // Return the data
+    return oAuthData;
+  } catch (error) {
+    toast.error("An error occurred. Check your details!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    setLoading(false);
+
+    // If there's an error, you might want to return an error value or throw an error.
+    return null; // or throw error
+  }
+}
+
+
+  const handleOAuth = ()=>{
+    // callGAuth();
+    if (callGAuth()=== null){
+      callGAuth();
+    }
+    console.log(oAuthData);
+  }
+
     return (
         <div className="conatainer text-white min-h-screen bg-[#4eac6d]">
             <div className="flex flex-col md:flex-row h-full p-3 py-0 md:p-5 relative">
@@ -196,7 +268,7 @@ const Register: React.FC = () => {
                                 label="Register"
                                 loading ={loading}
                             />
-                            <SignInWith text= "Sign up with"/>
+                            <SignInWith onClick={handleOAuth} text= "Sign up with"/>
                             <div className="text-[#8f9198] mt-0 md:mt-3 mb-6 text-center text-sm z-10">
                                 Do you have an account? <Link to="/" className="text-[#adb5bd] font-medium underline">Sign In</Link>
                             </div>
