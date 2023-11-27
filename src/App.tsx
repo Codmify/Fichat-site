@@ -14,40 +14,52 @@ import Register from "./pages/components/Auth/Register"
 import ForgotPassword from "./pages/components/Auth/ForgotPassword"
 import VerifyEmail from "./pages/components/Auth/VerifyEmail"
 import OneStepAway from "./pages/components/Auth/OneStepAway"
+import Error from "./pages/components/error/Error"
+import Home from "./pages/components/home/Home"
 
 
 function App() {
+
   return (
     <RecoilRoot>
       <Routes>
-        <Route path="/" element = {<Login/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        <Route path="recovery" element={<ForgotPassword />}/>
-        <Route path="onestepaway" element={<OneStepAway />}/>
-        <Route path="verify" element={<VerifyEmail />}/>
+        <Route path="recovery" element={<ForgotPassword />} />
+        <Route path="onestepaway" element={<OneStepAway />} />
+        <Route path="verify" element={<VerifyEmail />} />
+
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard" element={<Chat />}>
             <Route index element={<Welcome />} />
             <Route path="chats" element={<Welcome />} />
             <Route path="chats/:id" element={<Chatting />} />
           </Route>
-          
+
           <Route path="profile" element={<Profile />}>
             <Route index element={<Welcome />} />
           </Route>
+
+
           <Route path="contacts" element={<Contacts />}>
             <Route index element={<Welcome />} />
           </Route>
+
           <Route path="calls" element={<Calls />}>
             <Route index element={<Welcome />} />
           </Route>
+
           <Route path="bookmark" element={<Bookmark />}>
             <Route index element={<Welcome />} />
           </Route>
+
           <Route path="settings" element={<Settings />}>
             <Route index element={<Welcome />} />
           </Route>
         </Route>
+
+        <Route path="*" element={<Error />} />
       </Routes>
     </RecoilRoot>
   )

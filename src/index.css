@@ -46,6 +46,10 @@ body {
     overflow: hidden;
   }
 
+  .background_style {
+    background: radial-gradient(#46B96C, rgba(42, 106, 63, 0.97), rgba(13, 13, 13, 0.94));
+  }
+
   @keyframes slide {
     from {
       transform: translate(-50%, -60%);
