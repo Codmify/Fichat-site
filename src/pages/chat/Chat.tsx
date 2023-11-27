@@ -10,6 +10,7 @@ import { chatState } from "../../atoms/ChatAtom";
 import ChatToolTip from "../../components/tooltip/ChatToolTip";
 import { Outlet, useParams } from "react-router-dom";
 
+
 export const Chat = () => {
   const { id } = useParams()
   const [searchString, setSearchString] = useState<string>("")
