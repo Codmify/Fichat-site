@@ -3,100 +3,115 @@ import FormHeading from './FormHeading'
 import InfoCard from './InfoCard'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react'
-import axios from 'axios';
 import { AiOutlineLoading } from "react-icons/ai";
 import InButton from './InButton';
 import { toast } from 'react-toastify';
+import axios, { AxiosResponse } from 'axios';
 
+interface ApiResponse<T> {
+  data: string;
+  meta: {
+    accessToken: string;
+    refreshToken: string;
+    user: T;
+  };
+}
+
+interface UserData {
+  email: string;
+  isVerified: boolean;
+  // Add other properties as needed
+}
 
 const VerifyEmail: React.FC = () => {
+  // State variables
   const [loading, setLoading] = useState(false);
-  const [btnloading, setBtnloading] = useState(false)
+  const [btnloading, setBtnloading] = useState(false);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('Email not yet verified');
   const [greeting, setGreeting] = useState('Ops! Try Again');
+
+  // Location and URL parameters
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const navigate = useNavigate();
-    // Extract the 'token' and 'email' parameters from the query string
+  // Extract the 'token' and 'email' parameters from the query string
   const token = searchParams.get('token');
   const email = searchParams.get('email');
 
-  useEffect(()=>{
-    verifyToken(token);
-  }, [])
+  // useEffect to run on component mount or when 'token' changes
+  useEffect(() => {
+    if (token) {
+      console.log('Component Mounted');
+      verifyToken(token);
+    }
+  }, [token]);
 
-// console.log(token);
-// console.log(email);
-const verifyToken = async (token: string | null): Promise<boolean> => {
-  if (token) {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_API_URL}/auth/user/form-verify/${token}`);
+  // Function to verify token
+  const verifyToken = async (token: string | null): Promise<boolean> => {
+    console.log('verifyToken Called');
+    if (token) {
+      setLoading(true);
+      try {
+        const response: AxiosResponse<ApiResponse<UserData>> = await axios.get(
+          `${import.meta.env.VITE_BASE_API_URL}/auth/user/form-verify/${token}`
+        );
 
-      // Check the response and return true or false based on the verification result
-      console.log(response.data);
-      if (response.data.status === 'success') {
-        setMessage(response.data.data);
-        setLoading(false);
-        setGreeting(('Congratulations!'));
-        setError(false);
-        return true;
-      } else {
+        // Check the response and return true or false based on the verification result
+        console.log(response.data);
+        if (response?.data?.meta?.user.isVerified === false) {
+          setLoading(false);
+          setError(false);
+          setMessage(response?.data?.data);
+          return false;
+        } else {
+          setMessage(response?.data?.data);
+          setLoading(false);
+          setGreeting('Congratulations!');
+          setError(false);
+          // console.log(response?.data?.data)
+          return true;
+        }
+      } catch (error) {
+        // Handle any errors that may occur during verification
+        setMessage(`${error}`);
+        setGreeting('Ops! Try Again');
+        console.error('Verification error:', error);
         setLoading(false);
         setError(true);
         return false;
       }
-    } catch (error) {
-      // Handle any errors that may occur during verification
-      setMessage(`${error}`);
-      setGreeting(('Ops! Try Again'));
-      console.error('Verification error:', error);
-      setLoading(false);
-      setError(true);
-      return false;
     }
-  }
 
-  // Return false if either the token or email is null
-  return false;
-};
+    // Return false if either the token or email is null
+    return false;
+  };
 
-const resendEmail = async (email: string | null) => {
-  setBtnloading(true);
-  try {
-    const res = await axios.post(
+  // Function to resend email verification
+  const resendEmail = async (email: string | null) => {
+    setBtnloading(true);
+    try {
+      const res = await axios.post(
         `${import.meta.env.VITE_BASE_API_URL}/auth/user/form-verify/resend`,
-        {email: email}
-        );
-        setBtnloading(false);
-        toast.success('Successful!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-        console.log(res.data)
-        // navigate to email verification page
-        navigate('/onestepaway');
-  } catch (error) {
-    toast.error("An error occured. Check your details!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-    setBtnloading(false);
-  }
-}
+        { email: email }
+      );
+      setBtnloading(false);
+      toast.success('Successful!', {
+        // Toast configuration...
+      });
+      console.log(res.data);
+      // Navigate to email verification page
+      navigate('/onestepaway');
+    } catch (error) {
+      toast.error('An error occurred. Check your details!', {
+        // Toast configuration...
+      });
+      setBtnloading(false);
+    }
+  };
+// console.log(token);
+// console.log(email);
+
 
   return (
     <div className="conatainer text-white min-h-screen	bg-[#4eac6d]">
