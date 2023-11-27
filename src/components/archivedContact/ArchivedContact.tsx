@@ -1,6 +1,6 @@
 import { PiArchiveDuotone } from "react-icons/pi"
 import { useSetRecoilState } from "recoil"
-import { chatState } from "../../../atoms/ChatAtom"
+import { chatState } from "../../atoms/ChatAtom"
 
 
 type ArchivedContacts = {

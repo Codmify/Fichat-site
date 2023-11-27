@@ -4,11 +4,12 @@ import { ChangeEvent, useState } from "react"
 import { useSetRecoilState } from "recoil";
 import { useRecoilValue } from "recoil";
 import { chatModalState } from "../../atoms/ChatModalAtom";
-import AllChats from "./allchats/AllChats";
-import ArchivedContact from "./archivedContact/ArchivedContact";
+import AllChats from "../../components/allchats/AllChats";
+import ArchivedContact from "../../components/archivedContact/ArchivedContact";
 import { chatState } from "../../atoms/ChatAtom";
-import ChatToolTip from "../tooltip/ChatToolTip";
+import ChatToolTip from "../../components/tooltip/ChatToolTip";
 import { Outlet, useParams } from "react-router-dom";
+
 
 export const Chat = () => {
   const { id } = useParams()
