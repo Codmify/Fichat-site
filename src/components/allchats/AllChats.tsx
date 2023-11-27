@@ -1,11 +1,11 @@
 import { AiOutlinePlus } from "react-icons/ai"
 import { PiArchiveDuotone } from "react-icons/pi"
-import { chatModalState } from "../../../atoms/ChatModalAtom"
+import { chatModalState } from "../../atoms/ChatModalAtom"
 import { useSetRecoilState } from "recoil"
-import { chatState } from "../../../atoms/ChatAtom"
-import ChatToolTip from "../../tooltip/ChatToolTip"
+import { chatState } from "../../atoms/ChatAtom"
+import ChatToolTip from "../tooltip/ChatToolTip"
 import { Link, useParams } from "react-router-dom"
-import { contacts } from "../../../library/contacts"
+import { contacts } from "../../library/contacts"
 
 
 type Props = {
