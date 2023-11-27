@@ -1,4 +1,3 @@
-import userIcon from "./assets/user-image.jpg";
 import { BiUserCircle, BiPhoneCall, BiSolidMessageAltDetail } from "react-icons/bi";
 import { PiChats } from "react-icons/pi"
 import { RiContactsFill } from "react-icons/ri"

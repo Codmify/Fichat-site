@@ -20,7 +20,6 @@ interface Errors {
 }
 const Login: React.FC = () => {
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/dashboard"
   const navigate = useNavigate();
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
