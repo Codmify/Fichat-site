@@ -7,6 +7,7 @@ import { FiSettings } from "react-icons/fi"
 import { MdOutlineLightMode } from "react-icons/md"
 import { useLocation, Link, useParams } from "react-router-dom";
 import NavToolTip from "../tooltip/NavToolTip";
+import UserToolTip from "../tooltip/UserToolTip";
 
 
 const Navbar = () => {
@@ -93,7 +94,7 @@ const Navbar = () => {
                 </li>
 
                 <li className="w-full flex items-center justify-center cursor-pointer">
-                    <img src={userIcon} alt="User" className="rounded-full w-[20px] md:w-[30px]" />
+                   <UserToolTip />
                 </li>
             </ul>
         </nav>

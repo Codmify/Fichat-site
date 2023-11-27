@@ -16,6 +16,10 @@ type Props = {
     setIsOpen: (isOpen: boolean) => void
 }
 
+/* const initState = {
+    contact: "chinwejeremiah9@gmail.com"
+  } */
+
 export default function Header({ handleLeftMenu, isMenu, setIsOpen }: Props) {
     const { id } = useParams()
     const setCallState = useSetRecoilState(callsState)
@@ -28,6 +32,9 @@ export default function Header({ handleLeftMenu, isMenu, setIsOpen }: Props) {
     const handleVideoCall = () => {
         setCallState((prev) => ({ ...prev, isOpen: true, type: "video" }))
     }
+
+    /*  const [inputValue, setInputValue] = useState(initState)
+     const [isLoading, setIsLoading] = useState(false) */
 
 
     return (

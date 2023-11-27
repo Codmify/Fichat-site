@@ -20,6 +20,7 @@ type Props = {
     handleRightMenu: () => void
 }
 
+
 export default function Drawer({ isOpen, openMenu, setIsOpen, handleRightMenu }: Props) {
     const { id } = useParams()
     const filteredContacts = contacts.filter((contact) => contact.id === id)
@@ -102,7 +103,7 @@ export default function Drawer({ isOpen, openMenu, setIsOpen, handleRightMenu }:
           <>
             <section className="pt-4 pb-8 flex flex-col gap-y-6 border-b-[0.25px] border-b-[#3d3d3d]">
               {filteredContacts.map((contact) => (
-                <>
+                <div key={contact.name}>
                   <div>
                     <small className="uppercase text-xs font-[600]">Status:</small>
                     <p className="text-sm py-2 font-[500]">If several languages coalesce, the grammar of the resulting.</p>
@@ -126,7 +127,7 @@ export default function Drawer({ isOpen, openMenu, setIsOpen, handleRightMenu }:
                     <small className="text-sm font-[500]">Location</small>
                     <h4 className="text-sm font-[600]">Califonia</h4>
                   </div>
-                </>
+                </div>
               ))}
 
             </section>
