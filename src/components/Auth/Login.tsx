@@ -18,7 +18,7 @@ interface Errors {
   email?: string;
   password?: string;
 }
-const Login: React.FC = () => {
+const LoginOld: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const validateEmail = (email: string) => {
@@ -36,6 +36,8 @@ const Login: React.FC = () => {
     email: '',
     password: '',
   };
+
+  
   const validateAllFieldsNotEmpty = () => {
     let hasEmptyField = false;
     Object.keys(formData).forEach((inputName) => {
@@ -224,4 +226,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default Login;
+export default LoginOld;

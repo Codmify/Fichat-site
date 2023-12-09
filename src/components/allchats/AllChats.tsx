@@ -1,41 +1,117 @@
-import { AiOutlinePlus } from "react-icons/ai"
-import { PiArchiveDuotone } from "react-icons/pi"
-import { chatModalState } from "../../atoms/ChatModalAtom"
-import { useSetRecoilState } from "recoil"
-import { chatState } from "../../atoms/ChatAtom"
-import ChatToolTip from "../tooltip/ChatToolTip"
-import { Link, useParams } from "react-router-dom"
-import { contacts } from "../../library/contacts"
+// import { AiOutlinePlus } from "react-icons/ai"
+// import { PiArchiveDuotone } from "react-icons/pi"
+// import { chatModalState } from "../../atoms/ChatModalAtom"
+// import { useSetRecoilState } from "recoil"
+// import { chatState } from "../../atoms/ChatAtom"
+// import ChatToolTip from "../tooltip/ChatToolTip"
+// import { useParams } from "react-router-dom"
+// import { contacts } from "../../library/contacts"
+import { Accordion, Flowbite } from "flowbite-react"
+import { customTheme } from "../../library/customTheme"
 
 
-type Props = {
+/* type Props = {
   search: string
   handleSearch: () => void
-}
+} */
 
-const AllChats = ({ search, handleSearch }: Props) => {
-  const setChatModalState = useSetRecoilState(chatModalState)
-  const setChatState = useSetRecoilState(chatState)
-  const params = useParams()
-  const { id } = params
+const AllChats = (/* { search, handleSearch }: Props */) => {
 
-  const handleInvite = (type: "contact" | "group") => {
+  // const setChatModalState = useSetRecoilState(chatModalState)
+  // const setChatState = useSetRecoilState(chatState)
+  // const params = useParams()
+  // const { id } = params
+
+ /*  const handleInvite = (type: "contact" | "group") => {
     setChatModalState((prev) => ({ ...prev, isOpen: true, type: type }))
-  }
+  } */
 
-  const handleAllChats = () => {
+  /* const handleAllChats = () => {
     setChatState((prev) => ({ ...prev, isOpen: true, type: "archived" }))
-  }
+  } */
 
-  const favourites = contacts.filter(contact => contact.isFavorite === true)
-  const directMessages = contacts.filter(contact => !contact.isFavorite)
-  const channels = contacts.filter(contact => contact.type === "channel")
+  // const favourites = contacts.filter(contact => contact.isFavorite === true)
+  // const directMessages = contacts.filter(contact => !contact.isFavorite)
+  // const channels = contacts.filter(contact => contact.type === "channel")
+
 
 
   return (
-    <>
-      <section className="bg-[#262626]">
-        <h2 className="uppercase text-xs font-[700] py-2 px-6">Favourites</h2>
+    <Flowbite theme={{ theme: customTheme }}>
+      <Accordion flush>
+        <Accordion.Panel>
+          <Accordion.Title>What is Flowbite?</Accordion.Title>
+          <Accordion.Content>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons,
+              dropdowns, modals, navbars, and more.
+            </p>
+            <p className="text-gray-500 dark:text-gray-400">
+              Check out this guide to learn how to&nbsp;
+              <a
+                href="https://flowbite.com/docs/getting-started/introduction/"
+                className="text-cyan-600 hover:underline dark:text-cyan-500"
+              >
+                get started&nbsp;
+              </a>
+              and start developing websites even faster with components on top of Tailwind CSS.
+            </p>
+          </Accordion.Content>
+        </Accordion.Panel>
+        <Accordion.Panel>
+          <Accordion.Title>Is there a Figma file available?</Accordion.Title>
+          <Accordion.Content>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              Flowbite is first conceptualized and designed using the Figma software so everything you see in the library
+              has a design equivalent in our Figma file.
+            </p>
+            <p className="text-gray-500 dark:text-gray-400">
+              Check out the
+              <a href="https://flowbite.com/figma/" className="text-cyan-600 hover:underline dark:text-cyan-500">
+                Figma design system
+              </a>
+              based on the utility classes from Tailwind CSS and components from Flowbite.
+            </p>
+          </Accordion.Content>
+        </Accordion.Panel>
+        <Accordion.Panel>
+          <Accordion.Title>What are the differences between Flowbite and Tailwind UI?</Accordion.Title>
+          <Accordion.Content>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              The main difference is that the core components from Flowbite are open source under the MIT license, whereas
+              Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone
+              components, whereas Tailwind UI offers sections of pages.
+            </p>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">
+              However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no
+              technical reason stopping you from using the best of two worlds.
+            </p>
+            <p className="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
+            <ul className="list-disc pl-5 text-gray-500 dark:text-gray-400">
+              <li>
+                <a href="https://flowbite.com/pro/" className="text-cyan-600 hover:underline dark:text-cyan-500">
+                  Flowbite Pro
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://tailwindui.com/"
+                  rel="nofollow"
+                  className="text-cyan-600 hover:underline dark:text-cyan-500"
+                >
+                  Tailwind UI
+                </a>
+              </li>
+            </ul>
+          </Accordion.Content>
+        </Accordion.Panel>
+      </Accordion>
+    </Flowbite>
+  );
+}
+
+{/* <section className="bg-[#262626]"> */ }
+{/*  <h2 className="uppercase text-xs font-[700] py-2 px-6">Favourites</h2>
         <div>
           <ul className="py-1">
             {favourites.map(favorite => (
@@ -139,9 +215,7 @@ const AllChats = ({ search, handleSearch }: Props) => {
       >
         <small className="text-[11px] text-[#4eac6d]">Archived Contacts</small>
         <PiArchiveDuotone className="text-[#4eac6d]" size={10} />
-      </div>
-    </>
-  )
-}
+      </div> */}
+
 
 export default AllChats
