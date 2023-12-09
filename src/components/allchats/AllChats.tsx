@@ -10,12 +10,14 @@ import { Accordion, Flowbite } from "flowbite-react"
 import { customTheme } from "../../library/customTheme"
 
 
-/* type Props = {
+type Props = {
   search: string
   handleSearch: () => void
-} */
+}
 
-const AllChats = (/* { search, handleSearch }: Props */) => {
+const AllChats = ({ search, handleSearch }: Props) => {
+  search
+  handleSearch
 
   // const setChatModalState = useSetRecoilState(chatModalState)
   // const setChatState = useSetRecoilState(chatState)
