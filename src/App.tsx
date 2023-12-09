@@ -12,7 +12,8 @@ import Settings from "./pages/settings/Settings"
 import Chatting from "./components/dashboard/chatting/Chatting"
 import Dashboard from "./components/dashboard/Dashboard"
 import Welcome from "./components/dashboard/welcome/Welcome"
-import Login from "./components/Auth/Login"
+import Login from "./pages/login/Login"
+// import LoginOld from "./components/Auth/Login"
 import Register from "./components/Auth/Register"
 import ForgotPassword from "./components/Auth/ForgotPassword"
 import VerifyEmail from "./components/Auth/VerifyEmail"
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        {/* <Route path="/login_old" element={<LoginOld />} /> */}
         <Route path="register" element={<Register />} />
         <Route path="recovery" element={<ForgotPassword />} />
         <Route path="onestepaway" element={<OneStepAway />} />

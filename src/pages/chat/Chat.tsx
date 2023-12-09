@@ -32,9 +32,9 @@ export const Chat = () => {
 
   return (
     <>
-      <section className={`bg-[#262626] basis-full lg:min-w-[23%] lg:basis-[23%] text-[#8f9198] text-lg font-[700] md:ml-[84px] ${id && "hidden lg:block"}`}>
-        <div className="bg-[#262626] max-h-screen overflow-y-auto">
-          <header className="sticky top-0 bg-[#262626] pt-6 z-20 md:pl-6 md:pr-4 px-4">
+      <section className={`bg-[#212121] basis-full lg:min-w-[23%] lg:basis-[23%] text-[#8f9198] text-lg font-[700] md:ml-[70px] ${id && "hidden lg:flex"}`}>
+        <div className="bg-[#262626] max-h-screen overflow-y-auto w-full mx-auto">
+          <header className="sticky top-0 bg-[#262626] w-full pt-6 z-20 md:pl-6 px-3">
             
             <div className="flex justify-between items-center">
               <h2>Chats</h2>

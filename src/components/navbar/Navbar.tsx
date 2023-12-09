@@ -1,100 +1,123 @@
-import { BiUserCircle, BiPhoneCall, BiSolidMessageAltDetail } from "react-icons/bi";
-import { PiChats } from "react-icons/pi"
-import { RiContactsFill } from "react-icons/ri"
-import { BsFillBookmarksFill } from "react-icons/bs"
-import { FiSettings } from "react-icons/fi"
-import { MdOutlineLightMode } from "react-icons/md"
-import { useLocation, Link, useParams } from "react-router-dom";
 import NavToolTip from "../tooltip/NavToolTip";
-import UserToolTip from "../tooltip/UserToolTip";
+import chat_icon from "./assets/chat_icon.png"
+import call_icon from "./assets/call_icon.png"
+import start_icon from "./assets/star_icon.png"
+import media_icon from "./assets/media_icon.png"
+import settings_icon from "./assets/settings_icon.png"
+import plus_icon from "./assets/plus_icon.png"
+import profile_picture from "./assets/profile_picture.png"
+import login_icon from "./assets/login_icon.png"
+import { useParams, Link } from "react-router-dom";
+
 
 
 const Navbar = () => {
-    const location = useLocation()
     const { id } = useParams()
 
 
     return (
-        <nav className={`fixed bottom-0 lg:left-0 md:py-6 mx-auto bg-[#2e2e2e] w-full md:w-[90px] z-30 md:h-screen ${ id && "hidden lg:flex"}`}>
-            <ul className="flex md:flex-col w-full mx-auto items-center gap-y-9">
-                <li className="w-full hidden md:flex items-center justify-center cursor-pointer text-[#4eac6d] text-lg md:text-[25px]">
-                    <BiSolidMessageAltDetail />
-                </li>
+        <nav className={`fixed bottom-0 lg:left-0 lg:top-0 md:pt-4 px-[5px] mx-auto bg-[#4EAC6D] text-[#FEFEFE] w-full md:w-[70px] z-30 ${id && "hidden lg:flex"}`}>
+            <ul className="flex md:flex-col w-full md:h-screen justify-between mx-auto items-center md:pb-[40px]">
 
-                <li className={`w-full hidden md:flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/profile" ? "border-r-2 border-[#4eac6d] text-[#4eac6d]" : ""}`}>
-                    <Link
-                        to="profile"
-                        className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
-                    >
-                        <BiUserCircle className={location.pathname === "/dashboard/profile" ? "text-[#4eac6d]" : ""} />
+                <div className="flex md:flex-col gap-[10px]">
+                    <li className="w-full hidden md:flex items-center justify-center cursor-pointer">
+                        <h4 className="bg-[#FEFEFE] text-[#212121] w-[50px] h-[50px] rounded-[8px] font-[600] text-[1.5rem] leading-8 flex justify-center items-center">FC</h4>
+                    </li>
 
-                        <NavToolTip path="Profile" />
-                    </Link>
-                </li>
+                    <li className="w-full flex items-center justify-center">
+                        <Link
+                            to="/dashboard"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
+                            <div className="bg-[#FEFEFE] w-[46px] h-[46px] rounded-[8px] flex justify-center items-center relative">
+                                <div className="bg-[#EF4444] w-[22px] h-[22px] rounded-full flex justify-center items-center absolute -top-2 left-[34px] text-[12px] leading-[14px] font-[700] text-[#FEFEFE]">1</div>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
-                    <Link
-                        to="/dashboard"
-                        className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
-                    >
-                        <PiChats className={`my-4 md:my-0 ${location.pathname === "/dashboard" ? "text-[#4eac6d]" : ""}`} />
+                                <img src={chat_icon} alt="Chat Icon" width={32} />
+                            </div>
 
-                        <NavToolTip path="Chats" />
-                    </Link>
-                </li>
+                            <NavToolTip path="Chats" />
+                        </Link>
+                    </li>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/contacts" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
-                    <Link
-                        to="contacts"
-                        className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
-                    >
-                        <RiContactsFill className={`my-4 md:my-0 ${location.pathname === "/dashboard/contacts" ? "text-[#4eac6d]" : ""}`} />
+                    <li className="w-full flex items-center justify-center">
+                        <Link
+                            to="calls"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
 
-                        <NavToolTip path="Contacts" />
-                    </Link>
-                </li>
+                            <img src={start_icon} alt="Call Icon" width={32} />
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/calls" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
-                    <Link
-                        to="calls"
-                        className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
-                    >
-                        <BiPhoneCall className={`my-4 md:my-0 ${location.pathname === "/dashboard/calls" ? "text-[#4eac6d]" : ""}`} />
+                            <NavToolTip path="Calls" />
+                        </Link>
+                    </li>
 
-                        <NavToolTip path="Calls" />
-                    </Link>
-                </li>
+                    <li className="w-full flex items-center justify-center">
+                        <Link
+                            to="#"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
+                            <img src={call_icon} alt="Call Icon" width={32} />
+                            <NavToolTip path="Favorite" />
+                        </Link>
+                    </li>
+                </div>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/bookmark" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
-                    <Link
-                        to="bookmark"
-                        className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
-                    >
-                        <BsFillBookmarksFill className={`my-4 md:my-0 ${location.pathname === "/dashboard/bookmark" ? "text-[#4eac6d]" : ""}`} />
+                <div className="flex md:flex-col gap-4">
+                    <li className="w-full flex items-center justify-center">
+                        <Link
+                            to="bookmark"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
+                            <img src={media_icon} alt="Media Icon" width={32} />
+                            <NavToolTip path="Bookmark" />
+                        </Link>
+                    </li>
 
-                        <NavToolTip path="Bookmark" />
-                    </Link>
-                </li>
+                    <li className="w-full flex items-center justify-center">
+                        <Link
+                            to="settings"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
+                            <img src={settings_icon} alt="Settings Icon" width={32} />
+                            <NavToolTip path="Settings" />
+                        </Link>
+                    </li>
 
-                <li className={`w-full flex items-center justify-center text-lg md:text-[25px] ${location.pathname === "/dashboard/settings" ? "border-t-2 md:border-t-0 md:border-r-2 border-[#4eac6d]" : ""}`}>
-                    <Link
-                        to="settings"
-                        className='w-full p-1 flex items-center justify-center text-[#8f9198] cursor-pointer group'
-                    >
-                        <FiSettings className={`my-4 md:my-0 ${location.pathname === "/dashboard/settings" ? "text-[#4eac6d]" : ""}`} />
+                    <li className="w-full flex items-center justify-center">
+                        <Link
+                            to="#"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
+                            <img src={plus_icon} alt="Plus Icon" width={32} />
+                            <NavToolTip path="Add contacts" />
+                        </Link>
+                    </li>
 
-                        <NavToolTip path="Settings" />
-                    </Link>
-                </li>
+                    <li className="w-full flex items-center justify-center">
+                        <Link
+                            to="#"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
+                            <div className="bg-[#ECC22D] rounded-[8px] w-[48px] h-[48px] flex justify-center items-center relative">
+                                <div className="bg-[#BF3535] w-[22px] h-[22px] rounded-full flex justify-center items-center absolute -top-2 left-[34px] text-[12px] leading-[14px] font-[700] text-[#FEFEFE]">1</div>
 
-                <li className="w-full flex items-center justify-center cursor-pointer text-[#8f9198] text-lg md:text-[25px] px-2 group">
-                    <MdOutlineLightMode />
-                    <NavToolTip path="Light Mode" />
-                </li>
+                                <img src={profile_picture} alt="User Profile Icon" className="w-[48px] h-[48px] object-cover" />
+                            </div>
+                            <NavToolTip path="Profile" />
+                        </Link>
+                    </li>
 
-                <li className="w-full flex items-center justify-center cursor-pointer">
-                   <UserToolTip />
-                </li>
+
+                    <li className="w-full flex items-center justify-center md:mt-4">
+                        <Link
+                            to="#"
+                            className='w-full p-1 flex items-center justify-center cursor-pointer group'
+                        >
+                            <img src={login_icon} alt="Logout Icon" width={32} />
+                            <NavToolTip path="Log out" />
+                        </Link>
+                    </li>
+                </div>
             </ul>
         </nav>
     )
